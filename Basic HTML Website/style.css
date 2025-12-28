@@ -1,0 +1,277 @@
+body{
+  /* font-family: 'Courier New', Courier, monospace; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section{
+  height: 100vh;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 25px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: 540;
+}
+.name{
+  font-weight: 555;
+  margin-left: 10px;
+}
+.black-square{
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+.nav{
+  display: flex;
+  align-items: center;
+}
+#home h1{
+  font-family:  "Lobster Two", cursive;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+.lobster{
+  font-family:  "Lobster Two", cursive;
+}
+#home p{
+  font-size: 1rem;
+  font-weight: 500;
+  color: grey;
+}
+#home .main{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+hr{
+  border: 1px solid black;
+}
+#projects{
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#projects div{
+  flex-direction: column;
+}
+.projects hr,
+.work-experience hr{
+  border: 0;
+  border-top: 1.8px solid #000;
+  margin: 15px 0;
+}
+.projects h3{
+  margin: 5px 5px 5px 20px;
+  font-size: 1rem;
+  font-weight: 540;
+}
+.projects h2{
+  margin: 30px 0 30px 20px;
+}
+.projects h2, .work-experience h2, .education h2{
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+.projects{
+  border-right: 1.8px solid #000;
+  height: 100vh;
+  text-align: left;
+  width: 30%;
+}
+.work-experience{
+  border-right: 1.8px solid #000;
+  height: 100vh;
+  width: 38%;
+}
+.work-ex,
+.open-source{
+  padding: 0 20px;
+}
+.education{
+  height: 100vh;
+  width: 32%;
+  padding: 0 20px;
+}
+.education .achievements {
+  list-style: none;
+  padding-left: 0;    
+}
+.education .courses {
+  list-style-type: none; /* remove default dots */
+  padding-left: 0;    
+}
+.education .courses li::before {
+  content: "- ";         /* add dash before each item */
+}
+.articles{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.articles .review-card{
+  border: 1.8px solid #000;
+  padding: 10px 25px;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 40px;
+}
+.grey{
+  color: grey;
+  margin: 0 0 50px 0;
+  padding: 0;
+}
+.grey p{
+  margin: 0;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 480px) { 
+  body { 
+    font-size: 14px; 
+    padding: 10px; 
+    /* Keep global background as-is; only inner blocks turn grey */
+  }
+
+  header {
+    flex-direction: column;   /* stack name + nav */
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0 auto;
+  }
+  .nav{
+    flex-direction: column;  /* vertical nav */
+  }
+  nav ul {
+    flex-direction: row;   
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main{
+    height: auto;            
+    padding: 20px 0;        
+  }
+  #home h1 {
+    font-size: 2rem;          
+    text-align: center;
+    margin: 0;
+  }
+
+  #projects {
+    flex-direction: column;   
+    height: auto;
+  }
+
+  .projects, .work-experience, .education {
+    width: 100%;              
+    border-right: none;       
+    border-bottom: 1.8px solid #000; 
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Make ONLY these inner parts grey and remove margin-collapse gaps */
+  .projects-listing,
+  .work-ex,
+  .open-source {
+    background-color: #bdb9b9;     /* grey block */
+    padding: 12px 16px;            /* internal spacing */
+    overflow: hidden;              /* prevents first/last child margins from leaking */
+  }
+
+  /* Reset child margins inside grey blocks to avoid tiny white gaps */
+  .projects-listing h2,
+  .projects-listing h3,
+  .projects-listing p,
+  .projects-listing ul,
+  .projects-listing li,
+  .projects-listing hr,
+  .work-ex h2,
+  .work-ex p,
+  .work-ex ul,
+  .work-ex li,
+  .work-ex hr,
+  .open-source h2,
+  .open-source p,
+  .open-source ul,
+  .open-source li,
+  .open-source hr {
+    margin: 0;
+  }
+
+  /* Controlled spacing via padding */
+  .projects-listing h3 { padding: 8px 0; }
+  .work-ex p, .open-source p { padding: 6px 0; }
+
+  /* HR lines inside grey blocks: visible line, no extra space */
+  .projects-listing hr,
+  .work-ex hr,
+  .open-source hr {
+    border: 0;
+    border-top: 1px solid #000;
+  }
+
+  .articles {
+    flex-direction: column;   
+    gap: 10px;
+    padding: 12px 16px;
+    margin: 0;
+  }
+  .articles .review-card {
+    width: 100%;              
+  }
+  .review-card:not(:first-child){
+    display: none;
+  }
+
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;   /* keep title strip white */
+    padding: 8px 16px;
+    margin: 0;
+  }
+  .bottom-border{
+    flex-grow: 1;
+    height: 1.8px;
+    background-color: black;
+    margin: 0;
+  }
+  .info{
+    padding-left: 16px;
+    margin: 0;
+  }
+
+  /* Global hr: remove extra margins on mobile */
+  hr {
+    margin: 0;
+  }
+  .projects hr,
+  .work-experience hr {
+    margin: 0;   /* override the 15px margin */
+  }
+}
